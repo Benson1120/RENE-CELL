@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>美力學院 - RENE CELL 潤妮秀 | 專業保養知識與微創業資源</title>
+    <meta name="description" content="RENE CELL 潤妮秀「美力學院」匯集最新韓國皮膚科學保養知識、膠原蛋白護膚技巧，以及微商創業心法。賦予女性自信與財富雙重自由，與我們一起探索美力人生。">
+    <meta name="keywords" content="RENE CELL, 潤妮秀, 美力學院, 保養知識, 護膚技巧, 微創業, 斜槓, 女性創業, 韓國保養品, 膠原蛋白, 皮膚科學">
+    <meta name="author" content="RENE CELL Taiwan">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="美力學院 - RENE CELL 潤妮秀 | 啟動妳的美麗與事業">
+    <meta property="og:description" content="探索保養知識、創業思維與生活美學。RENE CELL 協助您找回肌膚原生之美，同時實現財富自由。">
+    <meta property="og:image" content="images/A01.jpg">
+    <meta property="og:url" content="https://www.renecell.life/academy.html">
+    <meta property="og:type" content="blog">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "headline": "RENE CELL 美力學院",
+      "description": "提供專業護膚知識與創業思維的學習平台",
+      "publisher": {
+        "@type": "Organization",
+        "name": "RENE CELL 潤妮秀",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.renecell.life/images/logo.png" 
+        }
+      }
+    }
+    </script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ----------------------------------------------------
+           學院專屬樣式 (保持原樣不動)
+        ---------------------------------------------------- */
+
+        /* 讓部落格圖片高度一致，避免卡片長短不一 */
+        .blog-card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        /* 側邊欄分類連結樣式 */
+        .category-link {
+            display: block;
+            padding: 10px 15px;
+            color: var(--text-dark, #5A5A5A);
+            /* 加入 fallback 顏色避免變數未定義 */
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .category-link:hover {
+            color: var(--brand-color, #d63384);
+            background-color: var(--brand-light, #fce4ec);
+            padding-left: 20px;
+        }
+
+        /* 頁面標題背景 (漸層粉) */
+        .page-header {
+            background: linear-gradient(135deg, #FFF5F7 0%, #fff 100%);
+            padding: 60px 0;
+            margin-bottom: 2rem;
+        }
+
+        .clamp {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            box-orient: vertical;
+            overflow: hidden;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+        }
+
+        /* --- 動畫效果 --- */
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- 分頁按鈕樣式覆寫 --- */
+        .page-link {
+            color: var(--brand-color, #d63384);
+            border: 1px solid #dee2e6;
+            background-color: #fff;
+        }
+
+        .page-link:hover {
+            color: var(--brand-hover, #c02a74);
+            background-color: var(--brand-light, #fce4ec);
+            border-color: #dee2e6;
+        }
+
+        .page-item.active .page-link {
+            background-color: var(--brand-color, #d63384) !important;
+            border-color: var(--brand-color, #d63384) !important;
+            color: white !important;
+            z-index: 1;
+        }
+
+        .page-link:focus {
+            box-shadow: 0 0 0 0.25rem rgba(214, 51, 132, 0.25);
+        }
+
+        /* 設定圖片比例為 6:4 */
+        .blog-card-img {
+            width: 100%;
+            aspect-ratio: 6 / 4;
+            object-fit: cover;
+            height: auto;
+        }
+
+        /* --- 彈出視窗圖片設定 --- */
+        #modal-img {
+            width: 100%;
+            aspect-ratio: 7.5 / 4;
+            object-fit: cover;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm" aria-label="主導覽列">
+        <div class="container">
+            <a class="navbar-brand serif-font fw-bold fs-3 text-brand" href="index.html">RENE CELL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="切換導覽">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">品牌故事</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#products">明星商品</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold" href="academy.html">美力學院</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#opportunity">事業機會</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="index.html#opportunity" class="btn btn-brand btn-sm">加入經銷</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header text-center mt-5">
+        <div class="container">
+            <h1 class="fw-bold serif-font display-5 mb-3">美力學院</h1>
+            <p class="text-muted lead">探索保養知識、創業思維與生活美學，與我們一起成長。</p>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">首頁</a></li>
+                    <li class="breadcrumb-item active text-brand" aria-current="page">美力學院</li>
+                </ol>
+            </nav>
+        </div>
+    </header>
+
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8">
+                    <div class="row g-4" id="article-container">
+                    </div>
+
+                    <div id="no-result" class="text-center py-5" style="display: none;">
+                        <i class="bi bi-search fs-1 text-muted"></i>
+                        <p class="mt-3 text-muted">抱歉，找不到符合條件的文章。</p>
+                        <button class="btn btn-outline-brand btn-sm" onclick="resetFilter()">顯示所有文章</button>
+                    </div>
+
+                    <nav aria-label="Page navigation" class="mt-5">
+                        <ul class="pagination justify-content-center" id="pagination-container">
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="modal fade" id="dynamicArticleModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content border-0 rounded-4">
+                            <div class="modal-header border-0 pb-0">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body px-5 pb-5">
+                                <span class="badge bg-light-brand text-brand mb-2" id="modal-category">分類</span>
+                                <h2 class="fw-bold mb-4 serif-font" id="modal-title">文章標題</h2>
+
+                                <img src="" class="img-fluid rounded-3 mb-4 shadow-sm w-100 object-fit-cover"
+                                    id="modal-img" alt="RENE CELL 學院文章配圖" loading="lazy">
+
+                                <div id="modal-content" class="text-muted">
+                                </div>
+
+                                <div class="mt-5 text-center border-top pt-4">
+                                    <p class="small text-muted">喜歡這篇文章嗎？</p>
+                                    <a href="index.html#products" class="btn btn-brand btn-sm">
+                                        諮詢相關產品
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-5 mt-lg-0">
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-3">搜尋文章</h5>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="searchInput" placeholder="輸入關鍵字..."
+                                    aria-label="搜尋文章">
+                                <button class="btn btn-brand" type="button" onclick="searchArticles()"
+                                    aria-label="執行搜尋">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body p-0" id="category-sidebar-container">
+                            <div class="p-3 text-center text-muted">
+                                <small>載入分類中...</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-3">熱門標籤</h5>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button onclick="filterTag('膠原蛋白')"
+                                    class="btn btn-sm btn-outline-secondary rounded-pill">#膠原蛋白</button>
+                                <button onclick="filterTag('微創業')"
+                                    class="btn btn-sm btn-outline-secondary rounded-pill">#微創業</button>
+                                <button onclick="filterTag('斜槓')"
+                                    class="btn btn-sm btn-outline-secondary rounded-pill">#斜槓</button>
+                                <button onclick="filterTag('保濕')"
+                                    class="btn btn-sm btn-outline-secondary rounded-pill">#保濕</button>
+                                <button onclick="filterTag('減脂')"
+                                    class="btn btn-sm btn-outline-secondary rounded-pill">#減脂</button>
+                                <button onclick="filterTag('RENECELL')"
+                                    class="btn btn-sm btn-outline-secondary rounded-pill">#RENECELL</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4 class="serif-font fw-bold mb-3">RENE CELL</h4>
+                    <p class="small text-secondary mb-0">致力於提供最純淨的產品與最公平的事業平台。</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">快速連結</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="index.html#about" class="text-secondary text-decoration-none hover-white">關於我們</a>
+                        </li>
+                        <li><a href="index.html#products"
+                                class="text-secondary text-decoration-none hover-white">熱銷產品</a></li>
+                        <li><a href="index.html#opportunity"
+                                class="text-secondary text-decoration-none hover-white">事業機會</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3">聯絡我們</h5>
+                    <p class="small text-secondary">客服專線：0800-000-000<br>Email: service@renecell.life</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white text-decoration-none" aria-label="Facebook 粉絲專頁"><i
+                                class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white text-decoration-none" aria-label="Instagram 官方帳號"><i
+                                class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-white text-decoration-none" aria-label="Line 官方帳號"><i
+                                class="bi bi-line fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center pt-4 border-top border-secondary mt-4 small text-secondary">
+                &copy; MUMU CREATIVE 2025 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/academy.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
